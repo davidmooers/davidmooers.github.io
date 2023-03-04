@@ -14,7 +14,7 @@ function showNav() {
     var navbar = document.querySelector(".navigation");
     var hero = document.querySelector(".hero");
     var bounds = hero.getBoundingClientRect();
-    if (bounds.bottom < 0) navbar.classList.add("active");
+    if (bounds.bottom <= navbar.getBoundingClientRect().bottom) navbar.classList.add("active");
     else navbar.classList.remove("active");
 }
 

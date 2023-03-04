@@ -54,9 +54,9 @@ a:hover {
     align-items: center;
     text-align: center;
     padding: 0 10%;
-    transform: translateY(3vh);
+    transform: translateY(-3vh);
     opacity: 0;
-    transition: 0.2s all ease-in-out;
+    transition: 0.1s all ease-in-out;
     z-index: 1;
 }
 
@@ -72,8 +72,6 @@ a:hover {
 /* Hero */
 .hero {
     display: flex;
-    width: 100vw;
-    height: 100vh;
     justify-content: center;
     align-items: center;
 }
@@ -93,7 +91,7 @@ a:hover {
 }
 
 .hero2 {
-    font-size: clamp(2rem, 7vw, 10rem);
+    font-size: clamp(3rem, 7vw, 10rem);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 100;
     text-transform: uppercase;

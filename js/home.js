@@ -14,9 +14,9 @@ var xOffset = 0;
 var yOffset = 0;
 
 // constants
-const pointCount = 1000;
-const particleCount = 2000;
+const particleCount = 150;
 const points = [];
+const particles = [];
 
 /* POINT LOGIC */
 function Point(x, y, velX, velY) {
@@ -39,7 +39,6 @@ Point.prototype = {
         this.y += this.velY/10;
         this.velX /= 1.01;
         this.velY /= 1.01;
-        if (this.velX == 0 && this.velY == 0) return;
         this.depth /= 1.01;
     }
 };
@@ -61,13 +60,14 @@ function dist(x1, y1, x2, y2) {
 }
 
 function generatePoints() {
-    while (points.length < pointCount) {
-        let ranX = random(canvas.width*1.2)-100;
-        let ranY = random(canvas.height*1.2)-100;
+    for(let i=0; i<canvas.width*0.55; i++) {
+        let ranX = (random(canvas.width*2)-canvas.width/2);
+        let ranY = (random(canvas.height*2)-canvas.height/2);
         let point = new Point(ranX, ranY, 0, 0);
-        points.push(point);
+        points[i] = point;
     }
 }
+
 /* END OF USEFUL FUNCTIONS*/
 
 // runs every "frame"
@@ -78,7 +78,10 @@ function draw() {
     ctx.fillStyle = "#FFFFFF";
     for (let i=0; i < points.length; i++) {
         points[i].render(xOffset);
-        points[i].update();
+    }
+    for (let i=0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].render(xOffset);
     }
 }
 
@@ -91,13 +94,16 @@ function mouseMoveEvent(event) {
     xOffset = ((window.innerWidth/2)-event.clientX)*2/window.innerWidth;
     yOffset = ((window.innerHeight/2)-event.clientY)*2/window.innerHeight;
     if (new Date().getTime() - lastSpawn > 20) {
-        let point = new Point(xPos, yPos+document.documentElement.scrollTop, randomNeg(1), randomNeg(1));
-        points[pointCount + (counter++)%particleCount] = point;
+        let point = new Point(xPos+document.documentElement.scrollLeft, yPos+document.documentElement.scrollTop, randomNeg(1), randomNeg(1));
+        particles[(counter++)%particleCount] = point;
         lastSpawn = new Date().getTime();
     }
 }
 
+// handle blank space if resized to larger width
+window.addEventListener("resize", generatePoints);
+
 /* ON START */
-generatePoints();
+generatePoints(0);
 setInterval(draw, 10);
 
