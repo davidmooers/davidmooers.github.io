@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: rgb(238, 238, 238);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+
+/* Navigation Section */
+#navbar {
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(10, 10, 10);
+}
+
+/* Hero Section */
+#hero {
+    width: 100vw;
+    height: 20vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#hero-top {
+    text-align: left;
+}
+
+#hero-middle {
+    text-align: center;
+    font-size: clamp(3rem, 10vw, 8rem);
+}
+
+#hero-bottom {
+    text-align: right;
+}
+
+/* About Section */
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about div {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    text-align: center;
+}
+
+#portrait {
+    width: auto;
+    max-width: 60vw;
+    margin-bottom: 15px;
+}
+
+/* Projects Section */
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Contact Section */
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact p {
+    width: 80vw;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#contact img {
+    width: 50px;
+}
+
+#contact-buttons {
+    width: 80vw;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+
+/* Footer Section */
+footer {
+    width: 100vw;
+    height: 40px;
+    background-color: rgb(14, 14, 14);
+    color: rgb(104, 104, 104);
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* Misc */
+.line {
+    width: 100vw;
+    height: 3px;
+    background-color: rgb(12, 12, 12);
+    margin-bottom: 30px;
+}
+
+.accent-mark {
+    width: 80vw;
+    height: 3px;
+    margin: 10px 0;
+    background-color: white;
+}
+
+.gradient {
+    text-transform: uppercase;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    background: linear-gradient(-45deg, #fcd913, #ffab0f, #ff9100, #ff7b00, #ff9100, #ffab0f, #fcd913);
+	background-size: 400% 400%;
+	animation: gradient 12s ease infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}   
+}
